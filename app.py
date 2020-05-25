@@ -103,55 +103,53 @@ if __name__ == '__main__':
         print("Welcome to the Basketball Stats Team Tool, Developed by Johnny Austen.\n\n --- MENU ---\n")
         while True:
             try:
-                initial_choice = int(input("Please select from the following choices: \n 1) View Team Stats \n 2) End Session / Quit "))
+                initial_choice = int(input("Please select from the following choices: \n 1) View Team Stats \n 2) End Session / Quit \n"))
+            
+                if initial_choice == 2:
+                    print("Thanks for visiting! Have a great day.")
+                    break
+                elif initial_choice > 2:
+                    print("Sorry, the number you selected is too high. Please try again.\n")
+                    continue
+                elif initial_choice < 1:
+                    print("Sorry, the number you selected is too low. Please try again.\n")
+                    continue
+                
+                elif initial_choice == 1:
+                    start_game = True
+                    while start_game == True:
+                            team_selection = input("\n Please select from the following teams: \n 1) Panthers \n 2) Bandits \n 3) Warriors \n 4) Return to Main Menu. ")
+                            if  team_selection == '5':
+                                print("Oops, that number is too high! Please try again.\n")
+                                start_game = True
+                                continue
+                            if team_selection == '1':
+                                print("Team Stats: Panthers")
+                                team_master(panthers)
+                                start_game = True
+                                continue
+                            elif team_selection == '2':
+                                print("Team Stats: Bandits")
+                                print("**-----**")
+                                team_master(bandits)
+                                print("**-----**\n")
+                                start_game = True
+                                continue
+                            elif team_selection == '3':
+                                print("Team Stats: Warriors")
+                                print("**-----**")
+                                team_master(warriors)
+                                print("**-----**\n")
+                                start_game = True
+                                continue
+                            elif team_selection <= '0':
+                                print("Oops, that number is too low! Please try again.\n")
+                            elif team_selection == '4':
+                                print("Return to Main Menu!\n")
+                                break
+                            else:
+                                print("You have returned an invalid value. Please try again. \n")
+                                continue
             except ValueError:
                 print("Sorry, that's an invalid option.\n")
-                
-        
-            if initial_choice == 2:
-                print("Thanks for visiting! Have a great day.")
-                break
-            elif initial_choice > 2:
-                print("Sorry, the number you selected is too high. Please try again.\n")
-                continue
-            elif initial_choice < 1:
-                print("Sorry, the number you selected is too low. Please try again.\n")
-                continue
-            
-            elif initial_choice == 1:
-                start_game = True
-                while start_game == True:
-                        team_selection = input("\n Please select from the following teams: \n 1) Panthers \n 2) Bandits \n 3) Warriors \n 4) Return to Main Menu. ")
-                        if  team_selection == '5':
-                            print("Oops, that number is too high! Please try again.\n")
-                            start_game = True
-                            continue
-                        if team_selection == '1':
-                            print("Team Stats: Panthers")
-                            team_master(panthers)
-                            start_game = True
-                            continue
-                        elif team_selection == '2':
-                            print("Team Stats: Bandits")
-                            print("**-----**")
-                            team_master(bandits)
-                            print("**-----**\n")
-                            start_game = True
-                            continue
-                        elif team_selection == '3':
-                            print("Team Stats: Warriors")
-                            print("**-----**")
-                            team_master(warriors)
-                            print("**-----**\n")
-                            start_game = True
-                            continue
-                        elif team_selection <= '0':
-                            print("Oops, that number is too low! Please try again.\n")
-                        elif team_selection == '4':
-                            print("Return to Main Menu!\n")
-                            break
-                        else:
-                            print("You have returned an invalid value. Please try again. \n")
-                            continue
-    
     the_game()
